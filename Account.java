@@ -48,8 +48,8 @@ class Savings extends Account{
 class Current extends Account{
     private static final double min=-10000;
 
-    public Current(String accountNumber, String accHolderName, String balance){
-        super(accountNumber, accHolderName, min);
+    public Current(String accountNumber, String accHolderName, double balance){
+        super(accountNumber, accHolderName, balance);
     }
 
     @Override

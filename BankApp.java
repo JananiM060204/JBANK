@@ -15,9 +15,11 @@ public class BankApp {
             switch(choice){
                 case 1:
                     System.out.println("Enter your Account Number: ");
-                    String accNumber=in.next();
+                    in.nextLine();
+                    String accNumber=in.nextLine().trim();
                     System.out.println("Enter your username: ");
-                    String accHolderName = in.next();
+                    in.nextLine();
+                    String accHolderName = in.nextLine().trim();
                     System.out.println("Initial Balance = ");
                     double balance = in.nextDouble();
                     System.out.println("\t \t\t\t\t ===TYPE OF ACCOUNT=== \nEnter 1 for 'savings' account and 2 for 'current' account = ");
@@ -27,14 +29,15 @@ public class BankApp {
                         accRegister.addAccount(new Savings(accNumber, accHolderName, balance));
                     }
                     else{
-                        accRegister.addAccount(new Current(accNumber, accHolderName, accHolderName));
+                        accRegister.addAccount(new Current(accNumber, accHolderName, balance));
                     }
                     System.out.println("Account created successfully!\n");
                     break;
 
                 case 2:
                     System.out.println("Kindly enter your account number: ");
-                    String waN = in.next();
+                    in.nextLine();
+                    String waN = in.nextLine().trim();
                     Account wdAccount = accRegister.findAccount(waN);
                     if (wdAccount != null) {
                         System.out.println("Enter amount to withdraw: ");
@@ -47,7 +50,8 @@ public class BankApp {
 
                 case 3:
                     System.out.println("Kindly enter your account number: ");
-                    String daN=in.next();
+                    in.nextLine();
+                    String daN=in.nextLine().trim();
                     Account depAccount = accRegister.findAccount(daN);
                     if(depAccount!=null){
                         System.out.println("Enter amount to deposit: ");
@@ -60,10 +64,12 @@ public class BankApp {
 
                 case 4:
                     System.out.println("Kindly enter your account number: ");
-                    String baN=in.next();
+                    in.nextLine();
+                    String baN=in.nextLine().trim();
                     Account balanceAccount = accRegister.findAccount(baN);
                     if(balanceAccount!=null){
-                        balanceAccount.getBalance();
+                        double bal=balanceAccount.getBalance();
+                        System.out.println("Available Balance: "+bal);
                     }else{
                         System.out.println("Account not found!");
                     }
